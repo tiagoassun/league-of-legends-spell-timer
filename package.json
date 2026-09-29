@@ -1,0 +1,60 @@
+{
+  "name": "league-of-legends-spell-timer",
+  "version": "0.1.0",
+  "description": "Overlay de PC para tracking de summoner spells inimigas no League of Legends",
+  "main": "./out/main/index.js",
+  "scripts": {
+    "dev": "electron-vite dev",
+    "build": "electron-vite build",
+    "preview": "electron-vite preview",
+    "start": "electron-vite preview",
+    "dist": "npm run build && electron-builder --win zip --x64",
+    "dist:dir": "npm run build && electron-builder --win dir --x64"
+  },
+  "author": "Tiago Assunção Silva",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^22.13.10",
+    "electron": "^35.0.3",
+    "electron-builder": "^26.15.3",
+    "electron-vite": "^3.0.0",
+    "png-to-ico": "^3.0.2",
+    "typescript": "^5.8.2",
+    "vite": "^6.2.2"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7"
+  },
+  "build": {
+    "appId": "com.tiago.lol-spell-timer",
+    "productName": "Spell Timer",
+    "copyright": "Copyright (c) Tiago Assunção Silva",
+    "icon": "build/icon.ico",
+    "directories": {
+      "output": "release",
+      "buildResources": "build"
+    },
+    "extraResources": [
+      {
+        "from": "build/icon.ico",
+        "to": "icon.ico"
+      }
+    ],
+    "files": [
+      "out/**/*"
+    ],
+    "asar": true,
+    "artifactName": "Spell-Timer-${version}-win-${arch}.${ext}",
+    "win": {
+      "icon": "build/icon.ico",
+      "target": [
+        {
+          "target": "zip",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    }
+  }
+}

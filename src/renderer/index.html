@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' https://ddragon.leagueoflegends.com data:; connect-src 'self' https://ddragon.leagueoflegends.com https://*.api.riotgames.com"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LoL Spell Timer</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div id="app" class="shell">
+      <header class="titlebar" id="titlebar">
+        <div class="titlebar-left">
+          <div class="titlebar-drag">
+            <span class="brand" data-i18n="app.brand">Spell Timer</span>
+          </div>
+          <div class="titlebar-tools">
+            <button
+              type="button"
+              id="btn-config"
+              class="icon-btn icon-only"
+              data-i18n-title="app.configTitle"
+              data-i18n-aria="app.configAria"
+              title="Configuração do programa"
+              aria-label="Configuração"
+            >
+              <svg class="btn-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  fill="currentColor"
+                  d="M19.14 12.94c.04-.31.06-.63.06-.94s-.02-.63-.06-.94l2.03-1.58a.5.5 0 0 0 .12-.64l-1.92-3.32a.5.5 0 0 0-.6-.22l-2.39.96a7.1 7.1 0 0 0-1.63-.94l-.36-2.54A.5.5 0 0 0 14.4 2h-4.8a.5.5 0 0 0-.5.42l-.36 2.54c-.59.24-1.13.55-1.63.94l-2.39-.96a.5.5 0 0 0-.6.22L2.7 8.48a.5.5 0 0 0 .12.64l2.03 1.58c-.04.31-.06.63-.06.94s.02.63.06.94L2.82 14.16a.5.5 0 0 0-.12.64l1.92 3.32c.13.23.4.32.6.22l2.39-.96c.5.39 1.04.7 1.63.94l.36 2.54c.05.24.26.42.5.42h4.8c.24 0 .45-.18.5-.42l.36-2.54c.59-.24 1.13-.55 1.63-.94l2.39.96c.23.1.47 0 .6-.22l1.92-3.32a.5.5 0 0 0-.12-.64l-2.03-1.58zM12 15.5A3.5 3.5 0 1 1 12 8.5a3.5 3.5 0 0 1 0 7z"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="titlebar-spacer" aria-hidden="true"></div>
+        <div class="titlebar-actions">
+          <button type="button" id="btn-min" class="icon-btn" data-i18n-title="app.minimize" title="Minimizar">_</button>
+          <button type="button" id="btn-close" class="icon-btn danger" data-i18n-title="app.close" title="Fechar">X</button>
+        </div>
+      </header>
+
+      <section class="panel setup" id="setup-panel">
+        <div class="profile-block">
+          <span class="field-label" data-i18n="app.profile">Perfil</span>
+          <div class="profile-combo">
+            <button
+              type="button"
+              id="btn-profile-picker"
+              class="profile-picker-btn"
+              aria-haspopup="listbox"
+              aria-expanded="false"
+            >
+              <span id="profile-summary" class="profile-summary">Apdo#Godd</span>
+              <span class="profile-picker-caret" aria-hidden="true"></span>
+            </button>
+            <ul id="profile-list" class="profile-list" role="listbox" hidden></ul>
+          </div>
+          <div class="profile-bar-actions">
+            <button type="button" id="btn-edit-profile" class="secondary" data-i18n="app.editProfile">
+              Editar
+            </button>
+            <button type="button" id="btn-new-profile" class="secondary ok-outline" data-i18n="app.newProfile">
+              Novo perfil
+            </button>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button type="button" id="btn-fetch-matches" class="primary" data-i18n="app.fetchMatches">
+            Buscar partidas
+          </button>
+        </div>
+        <p id="status" class="status" role="status"></p>
+      </section>
+
+      <section class="match-board" id="match-board" hidden>
+        <h2 class="match-board-title" data-i18n="app.matches">Partidas</h2>
+        <div id="match-cards" class="match-cards"></div>
+      </section>
+    </div>
+    <script type="module" src="./src/main.ts"></script>
+  </body>
+</html>

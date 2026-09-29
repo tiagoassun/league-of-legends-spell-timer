@@ -1,0 +1,244 @@
+:root {
+  color-scheme: dark;
+  --bg: #0c1016;
+  --panel: #161c26;
+  --border: rgba(120, 140, 170, 0.28);
+  --text: #e8eef7;
+  --muted: #9aabbf;
+  --accent: #c8aa6e;
+  --danger: #d64b4b;
+  --ok: #3d9b6e;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: fit-content;
+  height: fit-content;
+  background: var(--bg);
+  color: var(--text);
+  overflow: hidden;
+  user-select: none;
+}
+
+.settings-shell {
+  width: 20rem;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  padding: 0.55rem 0.7rem 0.7rem;
+  border: 1px solid var(--border);
+}
+
+.titlebar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.55rem;
+}
+
+.titlebar-drag {
+  flex: 1;
+  min-width: 0;
+  -webkit-app-region: drag;
+  padding: 0.3rem 0.15rem;
+}
+
+.titlebar-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  -webkit-app-region: no-drag;
+  flex: 0 0 auto;
+}
+
+.brand {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.icon-btn {
+  -webkit-app-region: no-drag;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  color: var(--text);
+  border-radius: 0.4rem;
+  padding: 0.15rem 0.55rem;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: border-color 0.15s ease, color 0.15s ease, background-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.icon-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(200, 170, 110, 0.1);
+}
+
+.icon-btn.danger:hover {
+  border-color: var(--danger);
+  color: var(--danger);
+  background: rgba(214, 75, 75, 0.16);
+}
+
+.flag-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  padding: 0.15rem;
+  overflow: hidden;
+}
+
+.flag-btn[aria-expanded='true'] {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px rgba(200, 170, 110, 0.35);
+}
+
+.flag-img {
+  width: 1.45rem;
+  height: 1rem;
+  object-fit: contain;
+  border-radius: 0.1rem;
+  display: block;
+  flex: 0 0 auto;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.2);
+  background: #0c1016;
+}
+
+.locale-panel {
+  max-height: 12rem;
+  overflow: auto;
+  border: 1px solid var(--border);
+  border-radius: 0.4rem;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.locale-list {
+  list-style: none;
+  margin: 0;
+  padding: 0.2rem;
+  display: grid;
+  gap: 0.15rem;
+}
+
+.locale-option {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  width: 100%;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--text);
+  border-radius: 0.35rem;
+  padding: 0.35rem 0.45rem;
+  cursor: pointer;
+  font-size: 0.82rem;
+  text-align: left;
+  transition: border-color 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.locale-option:hover {
+  border-color: var(--accent);
+  background: rgba(200, 170, 110, 0.12);
+}
+
+.locale-option.active {
+  border-color: var(--accent);
+  background: rgba(200, 170, 110, 0.16);
+  box-shadow: 0 0 0 1px rgba(200, 170, 110, 0.28);
+}
+
+.locale-option .flag-img {
+  width: 1.5rem;
+  height: 1.05rem;
+}
+
+.locale-option .locale-name {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.rows {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 4.5rem 1fr auto;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.row span {
+  white-space: nowrap;
+}
+
+.row input[type='range'] {
+  width: 100%;
+  height: 1.25rem;
+  cursor: pointer;
+  accent-color: var(--accent);
+  transition: filter 0.15s ease;
+}
+
+.row input[type='range']:hover {
+  filter: brightness(1.15);
+}
+
+.row select {
+  width: 4.5rem;
+  justify-self: start;
+  border: 1px solid var(--border);
+  background: rgba(0, 0, 0, 0.35);
+  color: var(--text);
+  border-radius: 0.4rem;
+  padding: 0.3rem 0.4rem;
+  outline: none;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.row select:hover {
+  border-color: rgba(200, 170, 110, 0.7);
+  background: rgba(200, 170, 110, 0.08);
+}
+
+.row select:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px rgba(200, 170, 110, 0.35);
+}
+
+.row output {
+  min-width: 2.5rem;
+  text-align: right;
+  font-size: 0.85rem;
+  color: var(--text);
+}
+
+.hint {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--muted);
+  line-height: 1.35;
+}

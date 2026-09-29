@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' https://ddragon.leagueoflegends.com data:; connect-src 'self' https://ddragon.leagueoflegends.com"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Overlay - Spell Timer</title>
+    <link rel="stylesheet" href="./overlay.css" />
+  </head>
+  <body>
+    <div id="app" class="shell">
+      <header class="titlebar">
+        <div class="titlebar-left">
+          <div class="titlebar-drag">
+            <span class="brand">Overlay</span>
+          </div>
+          <div class="titlebar-tools">
+            <button type="button" id="btn-lock" class="icon-btn icon-only" title="Travar overlay" aria-label="Travar">
+              <svg class="btn-icon pin-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  fill="currentColor"
+                  d="M16 12V4h1a1 1 0 1 0 0-2H7a1 1 0 1 0 0 2h1v8l-2 2v2h5.2V22h1.6v-6H18v-2l-2-2z"
+                />
+              </svg>
+            </button>
+            <button type="button" id="btn-config" class="icon-btn icon-only" title="Configuração do overlay" aria-label="Configuração">
+              <svg class="btn-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  fill="currentColor"
+                  d="M19.14 12.94c.04-.31.06-.63.06-.94s-.02-.63-.06-.94l2.03-1.58a.5.5 0 0 0 .12-.64l-1.92-3.32a.5.5 0 0 0-.6-.22l-2.39.96a7.1 7.1 0 0 0-1.63-.94l-.36-2.54A.5.5 0 0 0 14.4 2h-4.8a.5.5 0 0 0-.5.42l-.36 2.54c-.59.24-1.13.55-1.63.94l-2.39-.96a.5.5 0 0 0-.6.22L2.7 8.48a.5.5 0 0 0 .12.64l2.03 1.58c-.04.31-.06.63-.06.94s.02.63.06.94L2.82 14.16a.5.5 0 0 0-.12.64l1.92 3.32c.13.23.4.32.6.22l2.39-.96c.5.39 1.04.7 1.63.94l.36 2.54c.05.24.26.42.5.42h4.8c.24 0 .45-.18.5-.42l.36-2.54c.59-.24 1.13-.55 1.63-.94l2.39.96c.23.1.47 0 .6-.22l1.92-3.32a.5.5 0 0 0-.12-.64l-2.03-1.58zM12 15.5A3.5 3.5 0 1 1 12 8.5a3.5 3.5 0 0 1 0 7z"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="titlebar-spacer" aria-hidden="true"></div>
+        <div class="titlebar-actions">
+          <button type="button" id="btn-min" class="icon-btn" title="Minimizar">_</button>
+          <button type="button" id="btn-close" class="icon-btn danger" title="Fechar">X</button>
+        </div>
+      </header>
+
+      <section class="enemies" id="enemies"></section>
+    </div>
+    <script type="module" src="./src/overlay.ts"></script>
+  </body>
+</html>
