@@ -14,7 +14,7 @@
   "author": "Tiago Assunção Silva",
   "license": "MIT",
   "devDependencies": {
-    "@types/node": "^22.13.10",
+    "@types/node": "^26.6.4",
     "electron": "^35.0.3",
     "electron-builder": "^26.15.3",
     "electron-vite": "^3.0.0",
