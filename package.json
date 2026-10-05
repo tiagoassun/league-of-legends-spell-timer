@@ -19,7 +19,7 @@
     "electron-builder": "^26.15.3",
     "electron-vite": "^3.0.0",
     "png-to-ico": "^3.0.2",
-    "typescript": "^5.8.2",
+    "typescript": "^7.0.2",
     "vite": "^6.2.2"
   },
   "dependencies": {
