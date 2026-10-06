@@ -1,0 +1,53 @@
+name: release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  windows-zip:
+    name: windows-zip
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build and package
+        run: npm run dist
+
+      - name: Resolve zip artifact
+        id: artifact
+        shell: bash
+        run: |
+          set -euo pipefail
+          zip_path="$(ls -1 release/Spell-Timer-*-win-x64.zip | head -n 1)"
+          if [ -z "${zip_path}" ]; then
+            echo "Zip do electron-builder não encontrado em release/" >&2
+            exit 1
+          fi
+          echo "path=${zip_path}" >> "$GITHUB_OUTPUT"
+          echo "name=$(basename "${zip_path}")" >> "$GITHUB_OUTPUT"
+
+      - name: Publish GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: ${{ steps.artifact.outputs.path }}
+          generate_release_notes: true
+          fail_on_unmatched_files: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
