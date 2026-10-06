@@ -10,3 +10,8 @@ release/
 *.local
 
 *.tsbuildinfo
+
+# Scripts locais deste PC (atalho/barra; não vão no release público)
+scripts/abrir-spell-timer.cmd
+scripts/abrir-spell-timer.ps1
+scripts/instalar-atalho-spell-timer.ps1
