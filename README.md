@@ -62,6 +62,19 @@ Candidatos a fases seguintes: auto-detecção via Live Client Data (cliente loca
 
 Opcional em desenvolvimento: `.env` com `RIOT_API_KEY` ainda funciona como fallback se o campo da UI estiver vazio.
 
+## Baixar (GitHub Releases)
+
+Quem só quer usar o app (sem desenvolver):
+
+1. Abra a página de [Releases](https://github.com/tiagoassun/league-of-legends-spell-timer/releases).
+2. Baixe o zip `Spell-Timer-*-win-x64.zip` da versão desejada.
+3. Extraia a pasta e abra `Spell Timer.exe` pelo Explorer.
+4. Se o Windows pedir, em Propriedades marque **Desbloquear**.
+
+Aviso: o app ainda **não** tem certificado de assinatura de código. O Windows (SmartScreen / Controle de Aplicativo) pode avisar ou bloquear a abertura. Isso é esperado em builds locais/unsigned; não é vírus do repositório.
+
+Tags `v*` (ex.: `v0.1.0`) disparam o workflow `release` no GitHub Actions, que gera o zip no Windows e anexa no Release.
+
 ## Release Windows (sem instalador)
 
 Gera um zip com a pasta do app (não usa `.exe` portable - o Windows costuma bloquear esse formato sem certificado):
@@ -75,7 +88,7 @@ Saída em `release/`:
 - `Spell-Timer-0.1.0-win-x64.zip` - artefato para distribuir (GitHub Releases)
 - `win-unpacked/` - pasta já extraída para testar localmente (`Spell Timer.exe`)
 
-Como usar:
+Como usar localmente:
 
 1. Extraia o zip (ou use `win-unpacked` direto).
 2. Abra `Spell Timer.exe` pelo Explorer.
