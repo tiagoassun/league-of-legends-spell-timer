@@ -28,11 +28,11 @@ feature/<descricao-kebab>  →  hml  →  main
 - Conventional commits.
 - **Proibido** `workflow_run` disparado a partir de `main` para encadear deploy HML/prod. Deploy HML acompanha a branch `hml`.
 
-## Homologação
+## Homologação e produção
 
-- HML no **Servidor Pessoal** (também **Notebook Servidor** quando for preciso distinguir do PC do dia a dia).
+- Lab no **Servidor Pessoal** / **Notebook Servidor** quando houver artefato web; app desktop não depende de Portainer para o overlay.
 - **Proibido** chamar esse host só de "notebook".
-- Este produto é app desktop (Electron); não depende de stack Portainer para o runtime do overlay.
+- URLs web (se existirem): HML com `-hml` no hostname; PRD sem sufixo (`CONVENCOES.md`).
 
 ## Notas do produto
 
