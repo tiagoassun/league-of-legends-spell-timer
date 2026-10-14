@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' ws: wss: http://localhost:*"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Perfil</title>
+    <link rel="stylesheet" href="./profile.css" />
+  </head>
+  <body>
+    <div class="profile-shell">
+      <header class="titlebar">
+        <div class="titlebar-drag">
+          <span class="brand" id="brand" data-i18n="profile.brandEdit">Editar perfil</span>
+        </div>
+        <div class="titlebar-actions">
+          <button type="button" id="btn-close" class="icon-btn danger" data-i18n-title="app.close" title="Fechar">
+            X
+          </button>
+        </div>
+      </header>
+
+      <div class="fields">
+        <label>
+          <span data-i18n="app.gameName">Nome de jogo</span>
+          <input id="game-name" type="text" placeholder="Apdo" autocomplete="off" />
+        </label>
+        <label>
+          <span data-i18n="app.tag">Tag</span>
+          <input id="tag-line" type="text" placeholder="Godd" autocomplete="off" />
+        </label>
+        <label>
+          <span data-i18n="app.region">Região</span>
+          <select id="region"></select>
+        </label>
+        <label>
+          <span data-i18n="app.apiKey">Riot API Key</span>
+          <div class="secret-field">
+            <input
+              id="api-key"
+              type="password"
+              placeholder="RGAPI-..."
+              autocomplete="off"
+              spellcheck="false"
+            />
+            <button type="button" id="btn-toggle-api-key" class="secret-toggle" aria-pressed="false">
+              Ver
+            </button>
+          </div>
+        </label>
+      </div>
+
+      <div class="actions">
+        <button type="button" id="btn-save" class="primary" data-i18n="app.saveProfile">Salvar perfil</button>
+        <button type="button" id="btn-delete" class="secondary danger-outline" data-i18n="app.delete">
+          Excluir
+        </button>
+      </div>
+      <p id="status" class="status" role="status"></p>
+    </div>
+    <script type="module" src="./src/profile.ts"></script>
+  </body>
+</html>

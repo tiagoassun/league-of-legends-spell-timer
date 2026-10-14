@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' ws: wss: http://localhost:*"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Configuracao</title>
+    <link rel="stylesheet" href="./settings.css" />
+  </head>
+  <body>
+    <div class="settings-shell">
+      <header class="titlebar">
+        <div class="titlebar-drag">
+          <span class="brand" data-i18n="settings.brandApp">Config - Programa</span>
+        </div>
+        <div class="titlebar-actions">
+          <button
+            type="button"
+            id="btn-locale"
+            class="icon-btn flag-btn"
+            title="Idioma"
+            aria-label="Idioma"
+            aria-haspopup="listbox"
+            aria-expanded="false"
+          >
+            <img id="locale-flag" class="flag-img" src="./flags/br.svg" alt="" width="20" height="14" />
+          </button>
+          <button type="button" id="btn-close" class="icon-btn danger" data-i18n-title="settings.close" title="Fechar">
+            X
+          </button>
+        </div>
+      </header>
+
+      <div id="locale-panel" class="locale-panel" hidden>
+        <ul id="locale-list" class="locale-list" role="listbox"></ul>
+      </div>
+
+      <div class="rows" id="settings-rows">
+        <label class="row">
+          <span data-i18n="settings.opacity">Opacidade</span>
+          <input id="opacity" type="range" min="40" max="100" value="92" />
+          <output id="opacity-value" for="opacity">92%</output>
+        </label>
+
+        <label class="row">
+          <span data-i18n="settings.font">Fonte</span>
+          <select id="font-size">
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="14">14</option>
+            <option value="16" selected>16</option>
+            <option value="18">18</option>
+            <option value="20">20</option>
+            <option value="22">22</option>
+            <option value="24">24</option>
+            <option value="28">28</option>
+            <option value="32">32</option>
+          </select>
+        </label>
+      </div>
+
+      <p class="hint" data-i18n="settings.hintApp">Opacidade e fonte desta janela.</p>
+    </div>
+    <script type="module" src="./src/settings.ts"></script>
+  </body>
+</html>

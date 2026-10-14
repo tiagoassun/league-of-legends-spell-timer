@@ -1,0 +1,405 @@
+:root {
+  color-scheme: dark;
+  --bg: rgba(12, 16, 22, 0.92);
+  --panel: rgba(22, 28, 38, 0.95);
+  --border: rgba(120, 140, 170, 0.28);
+  --text: #e8eef7;
+  --muted: #9aabbf;
+  --accent: #c8aa6e;
+  --danger: #d64b4b;
+  --radius: 0.625rem;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: fit-content;
+  min-width: 0;
+  height: fit-content;
+  background: #0c1016;
+  color: var(--text);
+  overflow: hidden;
+  user-select: none;
+  pointer-events: none;
+}
+
+.shell {
+  width: fit-content;
+  min-width: 0;
+  height: fit-content;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 0.35rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 0;
+  pointer-events: none;
+}
+
+.titlebar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.35rem;
+  min-height: 1.75rem;
+  width: 100%;
+  padding: 0.1rem 0;
+  pointer-events: auto;
+  -webkit-app-region: no-drag;
+  cursor: grab;
+}
+
+.titlebar.is-dragging {
+  cursor: grabbing;
+}
+
+.titlebar-left {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  flex: 0 0 auto;
+  min-width: 0;
+  -webkit-app-region: no-drag;
+}
+
+.titlebar-drag {
+  flex: 0 0 auto;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  -webkit-app-region: no-drag;
+  padding: 0.1rem 0.15rem;
+}
+
+.titlebar-spacer {
+  flex: 1;
+  min-width: 0.35rem;
+  align-self: stretch;
+  -webkit-app-region: no-drag;
+  cursor: grab;
+}
+
+.shell.locked .titlebar,
+.shell.locked .titlebar-spacer {
+  cursor: default;
+}
+
+.brand {
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--accent);
+}
+
+.titlebar-tools,
+.titlebar-actions {
+  display: flex;
+  gap: 0.2rem;
+  -webkit-app-region: no-drag;
+  flex: 0 0 auto;
+  pointer-events: auto;
+}
+
+.icon-btn,
+.spell {
+  -webkit-app-region: no-drag;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  color: var(--text);
+  border-radius: 0.4rem;
+  pointer-events: auto;
+  position: relative;
+  z-index: 2;
+}
+
+.spell.is-untracked {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.icon-btn {
+  padding: 0.15rem 0.35rem;
+  font-size: 0.75rem;
+  transition: border-color 0.15s ease, color 0.15s ease, background-color 0.15s ease;
+}
+
+.icon-btn.icon-only {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.65rem;
+  height: 1.65rem;
+  padding: 0;
+}
+
+.btn-icon {
+  width: 0.95rem;
+  height: 0.95rem;
+  display: block;
+  pointer-events: none;
+}
+
+.pin-icon {
+  transition: transform 0.15s ease;
+}
+
+.icon-btn.pinned {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(200, 170, 110, 0.14);
+}
+
+.icon-btn.pinned .pin-icon {
+  transform: rotate(-35deg);
+}
+
+.icon-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(200, 170, 110, 0.12);
+}
+
+.icon-btn.active {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.icon-btn.danger:hover {
+  border-color: var(--danger);
+  color: var(--danger);
+  background: rgba(214, 75, 75, 0.16);
+}
+
+.enemies {
+  flex: 0 0 auto;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  width: 100%;
+}
+
+.enemy {
+  display: grid;
+  gap: 0.25rem;
+  width: max-content;
+  min-width: 100%;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  padding: 0.4rem;
+  overflow: visible;
+}
+
+.enemy-head {
+  display: grid;
+  gap: 0.05rem;
+}
+
+.enemy-name {
+  font-size: 0.85rem;
+  font-weight: 600;
+  line-height: 1.15;
+  white-space: nowrap;
+}
+
+.enemy-sub {
+  font-size: 0.7rem;
+  color: var(--muted);
+  line-height: 1.15;
+  white-space: nowrap;
+}
+
+.enemy-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+  min-width: max-content;
+}
+
+.champ-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  flex: 0 0 auto;
+  padding-top: 0;
+}
+
+.enemy img.champ {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0.4rem;
+  border: 1px solid var(--border);
+  object-fit: cover;
+  flex: 0 0 auto;
+}
+
+.spell.spell-passive {
+  width: 1.65rem;
+  height: 1.65rem;
+  border-radius: 0.3rem;
+  border-color: rgba(200, 170, 110, 0.55);
+}
+
+.spell.spell-passive .cd {
+  font-size: 0.7rem;
+}
+
+.spells {
+  display: flex;
+  gap: 0.35rem;
+  flex: 0 0 auto;
+}
+
+.spell-stacks {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  flex: 0 0 auto;
+}
+
+.spells.abilities .spell {
+  border-color: rgba(200, 170, 110, 0.45);
+}
+
+.spells.items .spell {
+  border-color: rgba(120, 170, 220, 0.5);
+}
+
+.summoner-line {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.row-expand {
+  -webkit-app-region: no-drag;
+  width: 1.15rem;
+  height: 1.15rem;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  color: var(--muted);
+  border-radius: 0.25rem;
+  flex: 0 0 auto;
+  pointer-events: auto;
+  position: relative;
+  z-index: 2;
+  transition: border-color 0.15s ease, color 0.15s ease, background-color 0.15s ease;
+}
+
+.row-expand:hover:not(:disabled) {
+  border-color: rgba(120, 170, 220, 0.85);
+  color: #9cc7e8;
+  background: rgba(120, 170, 220, 0.12);
+}
+
+.row-expand.open {
+  border-color: rgba(120, 170, 220, 0.75);
+  color: #9cc7e8;
+  background: rgba(120, 170, 220, 0.14);
+}
+
+.row-expand:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.row-expand .caret {
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 5px solid currentColor;
+  transition: transform 0.15s ease;
+}
+
+.row-expand.open .caret {
+  transform: rotate(180deg);
+}
+
+.row-expand.items .caret {
+  border-top-color: rgba(120, 170, 220, 0.95);
+}
+
+.spell {
+  position: relative;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  overflow: hidden;
+  border-radius: 0.4rem;
+  flex: 0 0 auto;
+  isolation: isolate;
+}
+
+.spell img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  pointer-events: none;
+  user-select: none;
+}
+
+.spell .cd {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(0, 0, 0, 0.72);
+  font-weight: 700;
+  font-size: 0.9rem;
+  pointer-events: none;
+  line-height: 1;
+  padding: 0.1rem;
+}
+
+.spell .cd.long {
+  font-size: 0.72rem;
+  letter-spacing: -0.02em;
+}
+
+.spell.ready .cd {
+  display: none;
+}
+
+.spell:hover,
+.spell.is-hover {
+  border-color: #f0d078;
+  box-shadow: 0 0 0 2px rgba(240, 208, 120, 0.95);
+  outline: 1px solid rgba(240, 208, 120, 0.7);
+  outline-offset: 1px;
+}
+
+.spells.abilities .spell:hover,
+.spells.abilities .spell.is-hover,
+.spell.spell-passive:hover,
+.spell.spell-passive.is-hover {
+  border-color: #f0d078;
+  box-shadow: 0 0 0 2px rgba(240, 208, 120, 0.95);
+}
+
+.empty {
+  color: var(--muted);
+  font-size: 0.85rem;
+  padding: 0.5rem 0.25rem;
+  text-align: center;
+}
