@@ -1,7 +1,7 @@
 # NEXT-AGENT.md
 
 Fonte de intenção e escopo: meta-repo
-`/d/Docs Locais/Git/__Confg-Projetos/projetos/_12-league-of-legends-spell-timer/NEXT-AGENT.md`
+`/d/Docs Locais/Git/__Confg-Projetos/projetos/_13-league-of-legends-spell-timer/NEXT-AGENT.md`
 
 Leia **esse** arquivo (e `AGENTS.md` / `MVP.md` / `ROADMAP.md` da mesma pasta) antes de editar código aqui.
 
