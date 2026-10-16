@@ -39,3 +39,9 @@ feature/<descricao-kebab>  →  hml  →  main
 - Projeto **lateral finalizado** (fora do ranking 1–12 / não é Slot A): overlay de PC para timers de summoner spells inimigas no LoL.
 - Não é companion mobile; overlay desktop always-on-top sem roubar cliques/foco do jogo.
 - Sem injection/leitura ilegal do cliente; Riot API Key fica local (UI / perfil) — não commitar secrets.
+
+## Ambiente DEV (Agents Window / Cloud Agent)
+
+- Fluxo: `feature/*` -> PR -> `dev` (Agents podem abrir/aprovar/mergear) -> PR -> `hml` / `main` (**só humano**).
+- Na `feature/*` e no Cloud da missão: editar, testar, commit, push e PR/merge para `dev` **sem** pedir lote a cada passo (brief/pedido da missão já autoriza). Ver `__Confg-Projetos/AGENTS.md`.
+- **Proibido** para Agents: merge em `hml` ou `main`.
