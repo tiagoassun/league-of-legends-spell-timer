@@ -5,7 +5,7 @@ Instruções para agentes neste repositório de código.
 ## Ordem de leitura (obrigatória)
 
 1. Meta-repo `__Confg-Projetos`: `PRIORIDADE.md` e `WIP.md`.
-2. Pasta do projeto: `d:/Docs Locais/Git/__Confg-Projetos/projetos/_13-league-of-legends-spell-timer/` — ler `AGENTS.md`, `NEXT-AGENT.md`, `SPEC.md`, `MVP.md`, `ROADMAP.md` (e demais docs conforme a tarefa) **antes** de editar código aqui.
+2. Pasta do projeto: `d:/Docs Locais/Git/__Confg-Projetos/projetos/_14-league-of-legends-spell-timer/` — ler `AGENTS.md`, `NEXT-AGENT.md`, `SPEC.md`, `MVP.md`, `ROADMAP.md` (e demais docs conforme a tarefa) **antes** de editar código aqui.
 3. Só então este repo (`league-of-legends-spell-timer`); há ponte em `NEXT-AGENT.md` na raiz (brief canônico no meta).
 
 O meta-repo é a fonte de verdade de intenção e escopo.
@@ -36,7 +36,7 @@ feature/<descricao-kebab>  →  hml  →  main
 
 ## Notas do produto
 
-- Projeto **lateral finalizado** (fora do ranking 1–12 / não é Slot A): overlay de PC para timers de summoner spells inimigas no LoL.
+- Projeto **lateral finalizado** (fora do ranking 1-13 / não é Slot A): overlay de PC para timers de summoner spells inimigas no LoL.
 - Não é companion mobile; overlay desktop always-on-top sem roubar cliques/foco do jogo.
 - Sem injection/leitura ilegal do cliente; Riot API Key fica local (UI / perfil) — não commitar secrets.
 
